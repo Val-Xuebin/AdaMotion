@@ -1,0 +1,29 @@
+{
+  "motion_id": "012698",
+  "seq_len": 10,
+  "context_len": 6,
+  "world_checkpoint": "/work/adamotion/experiments/humanml_world_debug/world_best.pt",
+  "artifacts": [
+    {
+      "variant": "ground_truth",
+      "results_path": "/work/adamotion/experiments/smpl_vis/012698_len10/ground_truth/results.npy",
+      "obj_dir": "/work/adamotion/experiments/smpl_vis/012698_len10/ground_truth/sample0_rep0_obj",
+      "smpl_path": "/work/adamotion/experiments/smpl_vis/012698_len10/ground_truth/sample0_rep0_smpl_params.npy",
+      "frames": 10
+    },
+    {
+      "variant": "action_conditioned",
+      "results_path": "/work/adamotion/experiments/smpl_vis/012698_len10/action_conditioned/results.npy",
+      "obj_dir": "/work/adamotion/experiments/smpl_vis/012698_len10/action_conditioned/sample0_rep0_obj",
+      "smpl_path": "/work/adamotion/experiments/smpl_vis/012698_len10/action_conditioned/sample0_rep0_smpl_params.npy",
+      "frames": 10
+    },
+    {
+      "variant": "no_action",
+      "results_path": "/work/adamotion/experiments/smpl_vis/012698_len10/no_action/results.npy",
+      "obj_dir": "/work/adamotion/experiments/smpl_vis/012698_len10/no_action/sample0_rep0_obj",
+      "smpl_path": "/work/adamotion/experiments/smpl_vis/012698_len10/no_action/sample0_rep0_smpl_params.npy",
+      "frames": 10
+    }
+  ]
+}

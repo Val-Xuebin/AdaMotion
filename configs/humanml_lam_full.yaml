@@ -1,0 +1,22 @@
+stage: lam
+seed: 7
+model:
+  hidden_dim: 512
+  latent_dim: 32
+  beta: 0.001
+  dropout: 0.1
+data:
+  val_split: val
+  dataset:
+    data_root: /work/adamotion/data/HumanML3D
+    split: train
+    max_sequences:
+    max_transitions_per_sequence:
+train:
+  device: cuda
+  output_dir: /work/adamotion/experiments/humanml_lam_full
+  batch_size: 256
+  epochs: 20
+  lr: 0.0003
+  weight_decay: 0.0001
+  num_workers: 4

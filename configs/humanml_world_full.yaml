@@ -1,0 +1,23 @@
+stage: world_model
+seed: 7
+model:
+  hidden_dim: 512
+  dropout: 0.1
+  lam_checkpoint: /work/adamotion/experiments/humanml_lam_full/lam_best.pt
+data:
+  val_split: val
+  dataset:
+    data_root: /work/adamotion/data/HumanML3D
+    split: train
+    max_sequences:
+    context_len: 6
+    future_len: 1
+    stride: 1
+train:
+  device: cuda
+  output_dir: /work/adamotion/experiments/humanml_world_full
+  batch_size: 256
+  epochs: 20
+  lr: 0.0003
+  weight_decay: 0.0001
+  num_workers: 4
