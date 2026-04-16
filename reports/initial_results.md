@@ -1,10 +1,13 @@
 # Initial Results
 
+This document records the previous legacy baseline, not the current paper-facing `new_joints + spatiotemporal transformer`
+setup. The runs below use the earlier `new_joint_vecs + MLP` pipeline and should be treated as the baseline-v1 reference.
+
 ## Workspace
 
-- Upstream repo cloned to `/work/adamotion/repos/AdaWorld`
+- Upstream repo available at `/work/adaworld`
 - HumanML3D linked to `/work/adamotion/data/HumanML3D`
-- Human-motion baseline code implemented under `/work/adamotion/src/adamotion`
+- Human-motion baseline code organized under `/work/adamotion/lam` and `/work/adamotion/worldmodel`
 
 ## Dataset Sanity Check
 

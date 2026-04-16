@@ -1,0 +1,182 @@
+{
+  "run_name": "humanml_feature_mlp_world_debug",
+  "world_checkpoint": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/world_best.pt",
+  "render_root": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders",
+  "sample_indices": [
+    0,
+    8,
+    16,
+    24
+  ],
+  "num_samples": 4,
+  "avg_feature_mse_action": 0.0003571493725758046,
+  "avg_feature_mse_no_action": 0.00033195332071045414,
+  "avg_xyz_mse_action": 0.001093944039894268,
+  "avg_xyz_mse_no_action": 0.0016520078643225133,
+  "samples": [
+    {
+      "motion_id": "012698",
+      "sample_idx": 0,
+      "start_idx": 0,
+      "seq_len": 24,
+      "context_len": 6,
+      "representation": "humanml_feature_vector",
+      "feature_mse_action": 0.0003168440016452223,
+      "feature_mse_no_action": 0.00027995905838906765,
+      "xyz_mse_action": 0.0017004079418256879,
+      "xyz_mse_no_action": 0.0013260820414870977,
+      "artifacts": [
+        {
+          "variant": "ground_truth",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0000_len24/ground_truth/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0000_len24/ground_truth/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0000_len24/ground_truth/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        },
+        {
+          "variant": "action_conditioned",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0000_len24/action_conditioned/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0000_len24/action_conditioned/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0000_len24/action_conditioned/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        },
+        {
+          "variant": "no_action",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0000_len24/no_action/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0000_len24/no_action/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0000_len24/no_action/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        }
+      ]
+    },
+    {
+      "motion_id": "012698",
+      "sample_idx": 8,
+      "start_idx": 8,
+      "seq_len": 24,
+      "context_len": 6,
+      "representation": "humanml_feature_vector",
+      "feature_mse_action": 0.0002973875089082867,
+      "feature_mse_no_action": 0.000253146281465888,
+      "xyz_mse_action": 0.0009734311606734991,
+      "xyz_mse_no_action": 0.0017037588404491544,
+      "artifacts": [
+        {
+          "variant": "ground_truth",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0008_len24/ground_truth/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0008_len24/ground_truth/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0008_len24/ground_truth/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        },
+        {
+          "variant": "action_conditioned",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0008_len24/action_conditioned/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0008_len24/action_conditioned/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0008_len24/action_conditioned/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        },
+        {
+          "variant": "no_action",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0008_len24/no_action/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0008_len24/no_action/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0008_len24/no_action/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        }
+      ]
+    },
+    {
+      "motion_id": "012698",
+      "sample_idx": 16,
+      "start_idx": 16,
+      "seq_len": 24,
+      "context_len": 6,
+      "representation": "humanml_feature_vector",
+      "feature_mse_action": 0.0002894533099606633,
+      "feature_mse_no_action": 0.0002553225785959512,
+      "xyz_mse_action": 0.0007234077202156186,
+      "xyz_mse_no_action": 0.00161750556435436,
+      "artifacts": [
+        {
+          "variant": "ground_truth",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0016_len24/ground_truth/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0016_len24/ground_truth/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0016_len24/ground_truth/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        },
+        {
+          "variant": "action_conditioned",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0016_len24/action_conditioned/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0016_len24/action_conditioned/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0016_len24/action_conditioned/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        },
+        {
+          "variant": "no_action",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0016_len24/no_action/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0016_len24/no_action/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0016_len24/no_action/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        }
+      ]
+    },
+    {
+      "motion_id": "012698",
+      "sample_idx": 24,
+      "start_idx": 24,
+      "seq_len": 24,
+      "context_len": 6,
+      "representation": "humanml_feature_vector",
+      "feature_mse_action": 0.000524912669789046,
+      "feature_mse_no_action": 0.0005393853643909097,
+      "xyz_mse_action": 0.000978529336862266,
+      "xyz_mse_no_action": 0.001960685010999441,
+      "artifacts": [
+        {
+          "variant": "ground_truth",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0024_len24/ground_truth/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0024_len24/ground_truth/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0024_len24/ground_truth/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        },
+        {
+          "variant": "action_conditioned",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0024_len24/action_conditioned/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0024_len24/action_conditioned/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0024_len24/action_conditioned/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        },
+        {
+          "variant": "no_action",
+          "render_mode": "preview_only",
+          "xyz_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0024_len24/no_action/motion_xyz.npy",
+          "preview_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0024_len24/no_action/preview.svg",
+          "results_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_world_debug/renders/012698_start0024_len24/no_action/results.npy",
+          "frames": 24,
+          "render_warning": "No module named 'smplx'"
+        }
+      ]
+    }
+  ]
+}

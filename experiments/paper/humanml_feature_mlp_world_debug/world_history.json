@@ -1,0 +1,42 @@
+[
+  {
+    "epoch": 0,
+    "train_action_loss": 0.04926376614664028,
+    "train_no_action_loss": 0.04827423032317588,
+    "val_action_loss": 0.01971104243846789,
+    "val_no_action_loss": 0.019181470363021497,
+    "val_gain": -0.0005295720754463894
+  },
+  {
+    "epoch": 1,
+    "train_action_loss": 0.017560008607471166,
+    "train_no_action_loss": 0.01742439735124805,
+    "val_action_loss": 0.012132451201439248,
+    "val_no_action_loss": 0.01172286773010519,
+    "val_gain": -0.0004095834713340579
+  },
+  {
+    "epoch": 2,
+    "train_action_loss": 0.011837400148497589,
+    "train_no_action_loss": 0.011784632815353906,
+    "val_action_loss": 0.008769254162074983,
+    "val_no_action_loss": 0.008569288855927533,
+    "val_gain": -0.00019996530614744954
+  },
+  {
+    "epoch": 3,
+    "train_action_loss": 0.009118076156713624,
+    "train_no_action_loss": 0.009179795793354956,
+    "val_action_loss": 0.007095555054465686,
+    "val_no_action_loss": 0.006998237123888821,
+    "val_gain": -9.73179305768649e-05
+  },
+  {
+    "epoch": 4,
+    "train_action_loss": 0.007577962158664839,
+    "train_no_action_loss": 0.00770004992303786,
+    "val_action_loss": 0.006048036974216204,
+    "val_no_action_loss": 0.005989757514711155,
+    "val_gain": -5.8279459505048515e-05
+  }
+]

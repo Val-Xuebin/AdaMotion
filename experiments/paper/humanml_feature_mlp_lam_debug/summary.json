@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "run_name": "humanml_feature_mlp_lam_debug",
+  "stage": "lam",
+  "family": "feature_mlp",
+  "representation": "humanml_feature_vector",
+  "output_dir": "/work/adamotion/experiments/paper/humanml_feature_mlp_lam_debug",
+  "config_path": "/work/adamotion/configs/humanml_feature_mlp_lam_debug.yaml",
+  "checkpoint_path": "/work/adamotion/experiments/paper/humanml_feature_mlp_lam_debug/lam_last.pt",
+  "created_at_utc": "2026-04-13T00:57:16.426462+00:00",
+  "git_commit": "8b86dcdddcdc249c85090f0dd0bbe8bd891e7fb2",
+  "git_branch": "main",
+  "train": {
+    "device": "cuda",
+    "output_dir": "/work/adamotion/experiments/paper/humanml_feature_mlp_lam_debug",
+    "batch_size": 512,
+    "epochs": 5,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "num_workers": 4
+  },
+  "data": {
+    "val_split": "val",
+    "dataset": {
+      "data_root": "/work/adamotion/data/HumanML3D",
+      "representation": "humanml_feature_vector",
+      "split": "train",
+      "num_frames": 2,
+      "stride": 1,
+      "max_sequences": 512,
+      "max_transitions_per_sequence": 64
+    }
+  },
+  "model": {
+    "family": "feature_mlp",
+    "hidden_dim": 1024,
+    "latent_dim": 32,
+    "beta": 0.001,
+    "dropout": 0.1
+  },
+  "history_len": 5,
+  "best": {
+    "epoch": 4,
+    "train_loss": 0.007796999746475552,
+    "train_mse": 0.0076871394011817995,
+    "train_kl": 0.10986034743121413,
+    "val_loss": 0.006464823236245485,
+    "val_mse": 0.00636308968729443,
+    "val_kl": 0.1017335126239156
+  },
+  "summary": {
+    "best_epoch": 4,
+    "best_val_loss": 0.006464823236245485,
+    "best_val_mse": 0.00636308968729443,
+    "best_val_kl": 0.1017335126239156,
+    "best_train_loss": 0.007796999746475552
+  }
+}

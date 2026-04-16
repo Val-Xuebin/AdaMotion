@@ -6,11 +6,22 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
+import yaml
 
-from config import load_config
-from trainer import train_lam, train_world_model
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "lam"))
+sys.path.insert(0, str(ROOT / "worldmodel"))
+
+from lam.model import train_lam_from_config
+from train import train_world_model_from_config
+
+
+def load_config(path: str | Path):
+    with open(path, "r", encoding="utf-8") as f:
+        cfg = yaml.safe_load(f)
+    cfg["config_path"] = str(path)
+    return cfg
 
 
 def main() -> None:
@@ -21,9 +32,9 @@ def main() -> None:
     cfg = load_config(args.config)
     stage = cfg["stage"]
     if stage == "lam":
-        result = train_lam(cfg)
+        result = train_lam_from_config(cfg)
     elif stage == "world_model":
-        result = train_world_model(cfg)
+        result = train_world_model_from_config(cfg)
     else:
         raise ValueError(f"Unsupported stage: {stage}")
 
