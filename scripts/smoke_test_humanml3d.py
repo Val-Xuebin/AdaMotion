@@ -137,7 +137,7 @@ def _prior_step(prior_cfg: dict, device: torch.device) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data-root", default="/workspace/dataset/HumanML3D")
+    parser.add_argument("--data-root", default="/workspace/assets/dataset/HumanML3D")
     parser.add_argument("--lam-config", default="/workspace/AdaMotion/configs/lam_mom_full.yaml")
     parser.add_argument("--adapter-config", default="/workspace/AdaMotion/configs/salad_adapter_mom_full.yaml")
     parser.add_argument("--prior-config", default="/workspace/AdaMotion/configs/salad_prior_mom_full.yaml")

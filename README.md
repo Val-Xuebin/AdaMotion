@@ -19,14 +19,14 @@ Dataset preparation:
 
 ```bash
 python3 /workspace/AdaMotion/scripts/prepare_humanml3d.py \
-  --data-root /workspace/dataset/HumanML3D
+  --data-root /workspace/assets/dataset/HumanML3D
 ```
 
 Optional smoke check:
 
 ```bash
 python3 /workspace/AdaMotion/scripts/smoke_test_humanml3d.py \
-  --data-root /workspace/dataset/HumanML3D \
+  --data-root /workspace/assets/dataset/HumanML3D \
   --device cuda
 ```
 

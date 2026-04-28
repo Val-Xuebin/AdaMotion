@@ -8,7 +8,7 @@ export PYTHONPATH="/workspace/AdaMotion:/workspace/AdaMotion/lam:/workspace/AdaM
 export WANDB_DIR="${WANDB_DIR:-/workspace/AdaMotion/wandb}"
 export ADAMOTION_TEXT_ENCODER_BACKEND="${ADAMOTION_TEXT_ENCODER_BACKEND:-hf}"
 
-RAW_DIR="/workspace/experiments/benchmark/raw"
+RAW_DIR="/workspace/assets/benchmark/raw"
 EVAL_DIR="/workspace/AdaMotion/experiments/evals"
 mkdir -p "${RAW_DIR}" "${EVAL_DIR}"
 
@@ -26,7 +26,7 @@ else
   exit 2
 fi
 
-python /workspace/experiments/benchmark/scripts/validate_standard_layout.py \
+python /workspace/assets/benchmark/scripts/validate_standard_layout.py \
   2>&1 | tee "${RAW_DIR}/adamotion.eval_validate_standard_layout.log"
 
 run_eval() {
@@ -50,7 +50,7 @@ run_eval salad_no_action
 run_eval oracle_action
 run_eval prior_action
 
-python /workspace/experiments/benchmark/scripts/parse_results.py \
+python /workspace/assets/benchmark/scripts/parse_results.py \
   --rebuild-summary \
-  --results-dir /workspace/experiments/benchmark/results \
+  --results-dir /workspace/assets/benchmark/results \
   2>&1 | tee "${RAW_DIR}/adamotion.rebuild_summary_${MODE_PRESET}.log"

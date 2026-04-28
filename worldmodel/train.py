@@ -161,7 +161,7 @@ def _normalize_legacy_paths(value):
     if isinstance(value, list):
         return [_normalize_legacy_paths(item) for item in value]
     if isinstance(value, str):
-        return value.replace("/work/adamotion/data/HumanML3D", "/workspace/dataset/HumanML3D").replace(
+        return value.replace("/work/adamotion/data/HumanML3D", "/workspace/assets/dataset/HumanML3D").replace(
             "/work/adamotion", "/workspace/AdaMotion"
         )
     return value

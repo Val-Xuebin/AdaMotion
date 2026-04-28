@@ -21,7 +21,7 @@ model:
 data:
   val_split: val
   dataset:
-    data_root: /workspace/dataset/HumanML3D
+    data_root: /workspace/assets/dataset/HumanML3D
     representation: sal_rep
     split: train
     num_frames: 3

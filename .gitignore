@@ -17,3 +17,4 @@ wandb/artifacts/
 wandb/latest-run
 wandb/debug.log
 wandb/debug-internal.log
+notes/

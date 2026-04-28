@@ -33,7 +33,7 @@ def symlink_dir(src_dir: Path, dst_dir: Path, suffix: str):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--source-root", default="/workspace/dataset/HumanML3D")
+    parser.add_argument("--source-root", default="/workspace/assets/dataset/HumanML3D")
     parser.add_argument("--view-root", default="/workspace/benchmarks/humanmodels/data_views/HumanML3D_flat")
     args = parser.parse_args()
 

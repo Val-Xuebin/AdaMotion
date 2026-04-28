@@ -18,7 +18,7 @@ def _write_ids(path: Path, motion_ids: list[str]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data-root", default="/workspace/dataset/HumanML3D")
+    parser.add_argument("--data-root", default="/workspace/assets/dataset/HumanML3D")
     args = parser.parse_args()
 
     data_root = Path(args.data_root)

@@ -109,7 +109,7 @@ def _process_one(data_root: Path, motion_id: str, overwrite: bool) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data-root", default="/workspace/dataset/HumanML3D")
+    parser.add_argument("--data-root", default="/workspace/assets/dataset/HumanML3D")
     parser.add_argument("--split", choices=["train", "val", "test", "train_val", "all"])
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--overwrite", action="store_true")
