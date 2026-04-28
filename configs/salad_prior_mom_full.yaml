@@ -8,8 +8,8 @@ model:
   max_text_tokens: 32
   dropout: 0.1
   lam_checkpoint: /workspace/AdaMotion/experiments/lam_mom_full/lam_best.pt
-  official_salad_vae_opt: /workspace/assets/benchmark/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/opt.txt
-  official_salad_vae_checkpoint: /workspace/assets/benchmark/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/model/net_best_fid.tar
+  official_salad_vae_opt: /workspace/assets/humanmodels/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/opt.txt
+  official_salad_vae_checkpoint: /workspace/assets/humanmodels/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/model/net_best_fid.tar
 data:
   val_split: val_usable
   dataset:

@@ -19,10 +19,10 @@ model:
   cond_scale: 7.5
   train_base_denoiser: false
   lam_checkpoint: /workspace/AdaMotion/experiments/lam_mom_full/lam_best.pt
-  official_salad_vae_opt: /workspace/assets/benchmark/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/opt.txt
-  official_salad_vae_checkpoint: /workspace/assets/benchmark/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/model/net_best_fid.tar
-  official_salad_denoiser_opt: /workspace/assets/benchmark/model_assets/salad/checkpoints/t2m/t2m_denoiser_vpred_vaegelu/opt.txt
-  official_salad_denoiser_checkpoint: /workspace/assets/benchmark/model_assets/salad/checkpoints/t2m/t2m_denoiser_vpred_vaegelu/model/net_best_fid.tar
+  official_salad_vae_opt: /workspace/assets/humanmodels/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/opt.txt
+  official_salad_vae_checkpoint: /workspace/assets/humanmodels/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/model/net_best_fid.tar
+  official_salad_denoiser_opt: /workspace/assets/humanmodels/model_assets/salad/checkpoints/t2m/t2m_denoiser_vpred_vaegelu/opt.txt
+  official_salad_denoiser_checkpoint: /workspace/assets/humanmodels/model_assets/salad/checkpoints/t2m/t2m_denoiser_vpred_vaegelu/model/net_best_fid.tar
 data:
   val_split: val_usable
   dataset:
