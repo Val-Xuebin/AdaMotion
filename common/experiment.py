@@ -202,15 +202,6 @@ def _summarize_history(stage: str, history: List[Dict[str, Any]]) -> Dict[str, A
             "best_val_kl": best.get("val_kl"),
             "best_train_loss": best.get("train_loss"),
         }
-    if stage == "motion_vae":
-        best = min(history, key=lambda row: row["val_loss"])
-        return {
-            "best_epoch": best["epoch"],
-            "best_val_loss": best["val_loss"],
-            "best_val_recon": best.get("val_recon"),
-            "best_val_kl": best.get("val_kl"),
-            "best_train_loss": best.get("train_loss"),
-        }
     if stage == "world_model" and "val_action_loss" in history[0]:
         best = min(history, key=lambda row: row["val_action_loss"])
         return {
