@@ -7,6 +7,13 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
+from common.humanml_representation import (
+    HUMANML_NUM_JOINTS,
+    SAL_REP_JOINT_DIM,
+    humanml_vector_to_sal_rep,
+    resolve_motion_path,
+)
+
 
 def _read_split_ids(split_file: str | Path) -> List[str]:
     with open(split_file, "r", encoding="utf-8") as f:
@@ -16,6 +23,7 @@ def _read_split_ids(split_file: str | Path) -> List[str]:
 REPRESENTATION_DIRS = {
     "joint_positions": "new_joints",
     "humanml_feature_vector": "new_joint_vecs",
+    "sal_rep": "new_joint_vecs",
 }
 
 
@@ -27,7 +35,7 @@ def _representation_dir(representation: str) -> str:
 
 
 def _motion_path(data_root: str | Path, motion_id: str, representation: str) -> Path:
-    return Path(data_root) / _representation_dir(representation) / f"{motion_id}.npy"
+    return resolve_motion_path(data_root, _representation_dir(representation), motion_id)
 
 
 class HumanMLMotionDataset(Dataset):
@@ -65,6 +73,10 @@ class HumanMLMotionDataset(Dataset):
             self.num_joints = int(first_motion.shape[1])
             self.joint_dim = int(first_motion.shape[2])
             self.feature_dim = self.num_joints * self.joint_dim
+        elif self.representation == "sal_rep":
+            self.num_joints = HUMANML_NUM_JOINTS
+            self.joint_dim = SAL_REP_JOINT_DIM
+            self.feature_dim = self.num_joints * self.joint_dim
         else:
             self.num_joints = None
             self.joint_dim = None
@@ -74,7 +86,10 @@ class HumanMLMotionDataset(Dataset):
         return len(self.motion_ids)
 
     def load_motion(self, index: int) -> np.ndarray:
-        return np.load(_motion_path(self.data_root, self.motion_ids[index], self.representation)).astype(np.float32)
+        motion = np.load(_motion_path(self.data_root, self.motion_ids[index], self.representation)).astype(np.float32)
+        if self.representation == "sal_rep":
+            motion = humanml_vector_to_sal_rep(motion)
+        return motion
 
 
 class HumanMLContextDataset(Dataset):
@@ -91,6 +106,7 @@ class HumanMLContextDataset(Dataset):
         self.base = HumanMLMotionDataset(
             data_root=data_root,
             split=split,
+            min_frames=context_len + future_len,
             max_sequences=max_sequences,
             representation=representation,
         )

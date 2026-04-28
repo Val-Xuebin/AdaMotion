@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT / "lam"))
 sys.path.insert(0, str(ROOT / "worldmodel"))
 
 from lam.model import train_lam_from_config
-from train import train_world_model_from_config
+from worldmodel.train import train_action_prior_from_config, train_world_model_from_config
 
 
 def load_config(path: str | Path):
@@ -35,6 +35,8 @@ def main() -> None:
         result = train_lam_from_config(cfg)
     elif stage == "world_model":
         result = train_world_model_from_config(cfg)
+    elif stage == "action_prior":
+        result = train_action_prior_from_config(cfg)
     else:
         raise ValueError(f"Unsupported stage: {stage}")
 

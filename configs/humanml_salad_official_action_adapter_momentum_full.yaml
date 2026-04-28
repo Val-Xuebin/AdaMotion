@@ -1,0 +1,43 @@
+stage: world_model
+seed: 7
+model:
+  generator_type: official_salad_action_adapter
+  latent_dim: 256
+  clip_version: ViT-B/32
+  dropout: 0.1
+  activation: gelu
+  n_heads: 8
+  n_layers: 5
+  ff_dim: 1024
+  prediction_type: v_prediction
+  num_train_timesteps: 1000
+  num_inference_timesteps: 50
+  beta_start: 0.00085
+  beta_end: 0.012
+  beta_schedule: scaled_linear
+  cond_drop_prob: 0.1
+  cond_scale: 7.5
+  train_base_denoiser: false
+  lam_checkpoint: /workspace/AdaMotion/experiments/humanml_sal_rep_lam_momentum_full/lam_best.pt
+  official_salad_vae_opt: /workspace/experiments/benchmark/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/opt.txt
+  official_salad_vae_checkpoint: /workspace/experiments/benchmark/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/model/net_best_fid.tar
+  official_salad_denoiser_opt: /workspace/experiments/benchmark/model_assets/salad/checkpoints/t2m/t2m_denoiser_vpred_vaegelu/opt.txt
+  official_salad_denoiser_checkpoint: /workspace/experiments/benchmark/model_assets/salad/checkpoints/t2m/t2m_denoiser_vpred_vaegelu/model/net_best_fid.tar
+data:
+  val_split: val_usable
+  dataset:
+    data_root: /workspace/experiments/benchmark/data_views/HumanML3D_processed_flat_v1
+    split: train_usable
+    max_motion_length: 196
+    unit_length: 4
+    min_motion_len: 40
+    max_sequences:
+    random_caption: true
+train:
+  device: cuda
+  output_dir: /workspace/AdaMotion/experiments/humanml_salad_official_action_adapter_momentum_full
+  batch_size: 32
+  epochs: 100
+  lr: 0.0003
+  weight_decay: 0.000001
+  num_workers: 4

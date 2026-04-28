@@ -1,0 +1,26 @@
+name: adamotion
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - scipy
+  - pyyaml
+  - tqdm
+  - spacy
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+  - pip:
+      - diffusers>=0.30
+      - transformers>=4.40
+      - lightning>=2.2
+      - einops>=0.7
+      - safetensors>=0.4
+      - gdown>=5.2
+      - socksio>=1.0
+      - wandb>=0.26

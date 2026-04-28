@@ -52,7 +52,22 @@ def _plot_history(path: Path, history: List[Dict[str, Any]], stage: str) -> None
 
     epochs = [row["epoch"] for row in history]
     metric_groups = [
-        [key for key in ["train_loss", "val_loss", "train_mse", "val_mse", "train_kl", "val_kl"] if key in history[0]],
+        [
+            key
+            for key in [
+                "train_loss",
+                "val_loss",
+                "train_mse",
+                "val_mse",
+                "train_kl",
+                "val_kl",
+                "train_recon",
+                "val_recon",
+                "train_latent_mse",
+                "val_latent_mse",
+            ]
+            if key in history[0]
+        ],
         [key for key in ["train_action_loss", "val_action_loss", "train_no_action_loss", "val_no_action_loss", "val_gain"] if key in history[0]],
     ]
     series = [group for group in metric_groups if group]
@@ -160,12 +175,17 @@ def _plot_history_svg(path: Path, history: List[Dict[str, Any]], stage: str) -> 
 
 def _infer_representation(cfg: Dict[str, Any]) -> str:
     dataset_cfg = cfg.get("data", {}).get("dataset", {})
+    if dataset_cfg.get("representation"):
+        return str(dataset_cfg["representation"])
     data_root = str(dataset_cfg.get("data_root", ""))
     if "new_joints" in data_root:
         return "joint_positions"
     if "HumanML3D" in data_root:
-        if cfg.get("model", {}).get("joint_dim") == 3:
+        joint_dim = cfg.get("model", {}).get("joint_dim")
+        if joint_dim == 3:
             return "joint_positions"
+        if joint_dim == 13:
+            return "sal_rep"
         return "humanml_feature_vector"
     return "unknown"
 
@@ -182,7 +202,16 @@ def _summarize_history(stage: str, history: List[Dict[str, Any]]) -> Dict[str, A
             "best_val_kl": best.get("val_kl"),
             "best_train_loss": best.get("train_loss"),
         }
-    if stage == "world_model":
+    if stage == "motion_vae":
+        best = min(history, key=lambda row: row["val_loss"])
+        return {
+            "best_epoch": best["epoch"],
+            "best_val_loss": best["val_loss"],
+            "best_val_recon": best.get("val_recon"),
+            "best_val_kl": best.get("val_kl"),
+            "best_train_loss": best.get("train_loss"),
+        }
+    if stage == "world_model" and "val_action_loss" in history[0]:
         best = min(history, key=lambda row: row["val_action_loss"])
         return {
             "best_epoch": best["epoch"],
@@ -191,6 +220,15 @@ def _summarize_history(stage: str, history: List[Dict[str, Any]]) -> Dict[str, A
             "best_val_gain": best.get("val_gain"),
             "best_train_action_loss": best.get("train_action_loss"),
             "best_train_no_action_loss": best.get("train_no_action_loss"),
+        }
+    if stage == "world_model":
+        best = min(history, key=lambda row: row["val_loss"])
+        return {
+            "best_epoch": best["epoch"],
+            "best_val_loss": best["val_loss"],
+            "best_val_recon": best.get("val_recon"),
+            "best_val_latent_mse": best.get("val_latent_mse"),
+            "best_train_loss": best.get("train_loss"),
         }
     return {"best_epoch": history[-1]["epoch"]}
 

@@ -1,0 +1,46 @@
+stage: lam
+seed: 7
+model:
+  num_joints: 22
+  joint_dim: 13
+  model_dim: 256
+  latent_dim: 32
+  enc_blocks: 4
+  dec_blocks: 4
+  num_heads: 8
+  beta: 0.0002
+  dropout: 0.05
+  predict_next_from_momentum: true
+  window_len: 2
+  target_offset: 1
+  use_text_condition: true
+  use_timestep_condition: true
+  clip_version: ViT-B/32
+  max_text_tokens: 32
+  max_timestep: 512
+data:
+  val_split: val
+  dataset:
+    data_root: /workspace/dataset/HumanML3D
+    representation: sal_rep
+    split: train
+    num_frames: 3
+    stride: 2
+    max_sequences:
+    max_transitions_per_sequence:
+    random_caption: true
+    cache_motion: true
+    max_cached_sequences: 2048
+train:
+  device: cuda
+  output_dir: /workspace/AdaMotion/experiments/humanml_sal_rep_lam_momentum_full
+  batch_size: 2048
+  epochs: 20
+  lr: 0.0001
+  weight_decay: 0.01
+  num_workers: 16
+  pin_memory: true
+  persistent_workers: true
+  prefetch_factor: 4
+  use_amp: true
+  amp_dtype: float16

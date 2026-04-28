@@ -1,75 +1,69 @@
 # AdaMotion
 
-AdaMotion is a focused repo for adapting AdaWorld to human motion pretraining on HumanML3D.
+AdaMotion in this workspace is trimmed to the current HumanML3D main experiment chain:
 
-For side-by-side comparison, the upstream repository is available at `/work/adaworld`, and this repo is kept at
-`/work/adamotion`.
+1. momentum LAM pretraining on `sal_rep`
+2. official SALAD action adapter training
+3. official SALAD action prior training
+4. official SALAD benchmark evaluation
 
-The repository now mirrors AdaWorld's top-level structure as closely as possible while keeping the lightweight
-HumanML3D training code:
-
-- `lam/`: AdaWorld-style latent action model entrypoint and package for HumanML3D transitions
-- `worldmodel/`: AdaWorld-style world model entrypoint and package for HumanML3D context prediction
-- `configs/`: legacy flat configs kept for backward compatibility
-- `scripts/`: legacy entry scripts kept for backward compatibility
-- `reports/`: notes and result summaries
-- `experiments/`: checkpoints and exported artifacts
-- `data/HumanML3D/`: expected HumanML3D feature root, either real data or a local symlink
-
-Current baseline:
-
-- `Feature-MLP`: formal baseline on HumanML3D `new_joint_vecs`
-- `Joint-ST`: alternative joints-based spatiotemporal-transformer line
-- `WorldModel-HM`: short-horizon predictor conditioned on latent action
-
-State representation:
-
-- Per-frame HumanML3D joint positions of shape `[T, 22, 3]`
-
-Primary goal of this first baseline:
-
-- learn transition-level latent actions without text supervision
-- test whether action-aware short-horizon prediction is better than action-agnostic prediction
-
-The repository is self-contained. It does not depend on the checked-in upstream `repos/AdaWorld` copy to run these
-HumanML3D experiments.
-
-Recommended AdaWorld-style entrypoints:
+Environment:
 
 ```bash
-python3 /work/adamotion/lam/main.py \
-  --config /work/adamotion/lam/config/humanml_lam_debug.yaml
+conda env create -f /workspace/AdaMotion/environment.yml
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate adamotion
 ```
+
+Dataset preparation:
 
 ```bash
-python3 /work/adamotion/worldmodel/train.py \
-  --base /work/adamotion/worldmodel/configs/training/humanml_world_debug.yaml
+python3 /workspace/AdaMotion/scripts/prepare_humanml3d.py \
+  --data-root /workspace/dataset/HumanML3D
 ```
 
-Paper-facing MLP baseline setup:
+Optional smoke check:
 
 ```bash
-python3 /work/adamotion/scripts/backfill_legacy_baselines.py
-python3 /work/adamotion/lam/main.py \
-  --config /work/adamotion/configs/humanml_feature_mlp_lam_debug.yaml
-python3 /work/adamotion/worldmodel/train.py \
-  --base /work/adamotion/configs/humanml_feature_mlp_world_debug.yaml
-python3 /work/adamotion/scripts/aggregate_experiments.py
+python3 /workspace/AdaMotion/scripts/smoke_test_humanml3d.py \
+  --data-root /workspace/dataset/HumanML3D \
+  --device cuda
 ```
 
-Unified run tables are written to:
-
-- `/work/adamotion/reports/tables/adamotion_runs.csv`
-- `/work/adamotion/reports/tables/adamotion_runs.md`
-
-Backward-compatible legacy entrypoints:
+Main training entrypoint:
 
 ```bash
-python3 /work/adamotion/scripts/train_hm.py \
-  --config /work/adamotion/configs/humanml_lam_debug.yaml
+python3 /workspace/AdaMotion/scripts/train_hm.py \
+  --config /workspace/AdaMotion/configs/humanml_sal_rep_lam_momentum_full.yaml
 ```
 
+Full main-experiment train chain:
+
 ```bash
-python3 /work/adamotion/scripts/train_hm.py \
-  --config /work/adamotion/configs/humanml_world_debug.yaml
+bash /workspace/AdaMotion/scripts/run_adamotion_salad_action_train.sh
 ```
+
+Main benchmark evaluation:
+
+```bash
+bash /workspace/AdaMotion/scripts/run_adamotion_salad_action_eval.sh benchmark
+```
+
+Kept configs:
+
+- `configs/humanml_sal_rep_lam_momentum_full.yaml`
+- `configs/humanml_salad_official_action_adapter_momentum_full.yaml`
+- `configs/humanml_salad_official_action_prior_momentum_full.yaml`
+
+Kept scripts:
+
+- `scripts/train_hm.py`
+- `scripts/prepare_humanml3d.py`
+- `scripts/build_humanml3d_usable_splits.py`
+- `scripts/build_humanml3d_flat_view.py`
+- `scripts/smoke_test_humanml3d.py`
+- `scripts/eval_official_salad_action_benchmark.py`
+- `scripts/run_adamotion_salad_action_train.sh`
+- `scripts/run_adamotion_salad_action_eval.sh`
+
+Local outputs remain under ignored paths such as `experiments/`, `wandb/`, and benchmark raw logs outside the repo tree.
