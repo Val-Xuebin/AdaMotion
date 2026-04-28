@@ -14,16 +14,16 @@ mkdir -p "${RAW_DIR}"
 python /workspace/experiments/benchmark/scripts/validate_standard_layout.py \
   2>&1 | tee "${RAW_DIR}/adamotion.validate_standard_layout.log"
 
-if [[ ! -f /workspace/AdaMotion/experiments/humanml_sal_rep_lam_momentum_full/lam_best.pt ]]; then
+if [[ ! -f /workspace/AdaMotion/experiments/lam_mom_full/lam_best.pt ]]; then
   python /workspace/AdaMotion/scripts/train_hm.py \
-    --config /workspace/AdaMotion/configs/humanml_sal_rep_lam_momentum_full.yaml \
-    2>&1 | tee "${RAW_DIR}/adamotion.sal_rep_lam_momentum_full.log"
+    --config /workspace/AdaMotion/configs/lam_mom_full.yaml \
+    2>&1 | tee "${RAW_DIR}/adamotion.lam_mom_full.log"
 fi
 
 python /workspace/AdaMotion/scripts/train_hm.py \
-  --config /workspace/AdaMotion/configs/humanml_salad_official_action_adapter_momentum_full.yaml \
-  2>&1 | tee "${RAW_DIR}/adamotion.official_salad_action_adapter_momentum_full.log"
+  --config /workspace/AdaMotion/configs/salad_adapter_mom_full.yaml \
+  2>&1 | tee "${RAW_DIR}/adamotion.salad_adapter_mom_full.log"
 
 python /workspace/AdaMotion/scripts/train_hm.py \
-  --config /workspace/AdaMotion/configs/humanml_salad_official_action_prior_momentum_full.yaml \
-  2>&1 | tee "${RAW_DIR}/adamotion.official_salad_action_prior_momentum_full.log"
+  --config /workspace/AdaMotion/configs/salad_prior_mom_full.yaml \
+  2>&1 | tee "${RAW_DIR}/adamotion.salad_prior_mom_full.log"

@@ -33,7 +33,7 @@ data:
     max_cached_sequences: 2048
 train:
   device: cuda
-  output_dir: /workspace/AdaMotion/experiments/humanml_sal_rep_lam_momentum_full
+  output_dir: /workspace/AdaMotion/experiments/lam_mom_full
   batch_size: 2048
   epochs: 20
   lr: 0.0001

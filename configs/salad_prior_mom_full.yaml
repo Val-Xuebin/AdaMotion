@@ -7,7 +7,7 @@ model:
   clip_version: ViT-B/32
   max_text_tokens: 32
   dropout: 0.1
-  lam_checkpoint: /workspace/AdaMotion/experiments/humanml_sal_rep_lam_momentum_full/lam_best.pt
+  lam_checkpoint: /workspace/AdaMotion/experiments/lam_mom_full/lam_best.pt
   official_salad_vae_opt: /workspace/experiments/benchmark/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/opt.txt
   official_salad_vae_checkpoint: /workspace/experiments/benchmark/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/model/net_best_fid.tar
 data:
@@ -22,7 +22,7 @@ data:
     random_caption: true
 train:
   device: cuda
-  output_dir: /workspace/AdaMotion/experiments/humanml_salad_official_action_prior_momentum_full
+  output_dir: /workspace/AdaMotion/experiments/salad_prior_mom_full
   batch_size: 64
   epochs: 100
   lr: 0.0003

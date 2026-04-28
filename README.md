@@ -34,7 +34,7 @@ Main training entrypoint:
 
 ```bash
 python3 /workspace/AdaMotion/scripts/train_hm.py \
-  --config /workspace/AdaMotion/configs/humanml_sal_rep_lam_momentum_full.yaml
+  --config /workspace/AdaMotion/configs/lam_mom_full.yaml
 ```
 
 Full main-experiment train chain:
@@ -51,9 +51,9 @@ bash /workspace/AdaMotion/scripts/run_adamotion_salad_action_eval.sh benchmark
 
 Kept configs:
 
-- `configs/humanml_sal_rep_lam_momentum_full.yaml`
-- `configs/humanml_salad_official_action_adapter_momentum_full.yaml`
-- `configs/humanml_salad_official_action_prior_momentum_full.yaml`
+- `configs/lam_mom_full.yaml`
+- `configs/salad_adapter_mom_full.yaml`
+- `configs/salad_prior_mom_full.yaml`
 
 Kept scripts:
 

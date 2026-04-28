@@ -292,9 +292,9 @@ def evaluate_once(args, device, eval_wrapper, val_loader, dataset, denoiser, vae
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["salad_no_action", "oracle_action", "prior_action"], required=True)
-    parser.add_argument("--adapter-config", default="/workspace/AdaMotion/configs/humanml_salad_official_action_adapter_momentum_full.yaml")
-    parser.add_argument("--adapter-checkpoint", default="/workspace/AdaMotion/experiments/humanml_salad_official_action_adapter_momentum_full/world_best.pt")
-    parser.add_argument("--prior-checkpoint", default="/workspace/AdaMotion/experiments/humanml_salad_official_action_prior_momentum_full/action_prior_best.pt")
+    parser.add_argument("--adapter-config", default="/workspace/AdaMotion/configs/salad_adapter_mom_full.yaml")
+    parser.add_argument("--adapter-checkpoint", default="/workspace/AdaMotion/experiments/salad_adapter_mom_full/world_best.pt")
+    parser.add_argument("--prior-checkpoint", default="/workspace/AdaMotion/experiments/salad_prior_mom_full/action_prior_best.pt")
     parser.add_argument("--split", default="test")
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--replication-times", type=int, default=20)

@@ -18,7 +18,7 @@ model:
   cond_drop_prob: 0.1
   cond_scale: 7.5
   train_base_denoiser: false
-  lam_checkpoint: /workspace/AdaMotion/experiments/humanml_sal_rep_lam_momentum_full/lam_best.pt
+  lam_checkpoint: /workspace/AdaMotion/experiments/lam_mom_full/lam_best.pt
   official_salad_vae_opt: /workspace/experiments/benchmark/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/opt.txt
   official_salad_vae_checkpoint: /workspace/experiments/benchmark/model_assets/salad/checkpoints/t2m/t2m_vae_gelu/model/net_best_fid.tar
   official_salad_denoiser_opt: /workspace/experiments/benchmark/model_assets/salad/checkpoints/t2m/t2m_denoiser_vpred_vaegelu/opt.txt
@@ -35,7 +35,7 @@ data:
     random_caption: true
 train:
   device: cuda
-  output_dir: /workspace/AdaMotion/experiments/humanml_salad_official_action_adapter_momentum_full
+  output_dir: /workspace/AdaMotion/experiments/salad_adapter_mom_full
   batch_size: 32
   epochs: 100
   lr: 0.0003
